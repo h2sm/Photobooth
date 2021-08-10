@@ -1,0 +1,9 @@
+.gradle/
+.idea/
+build/
+gradle/
+src/main/java/com.example.DemkaEE/
+settings.gradle
+gradlew.bat
+gradlew
+build.gradle
