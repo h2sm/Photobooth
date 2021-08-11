@@ -10,26 +10,54 @@
 <head>
     <title>Админка</title>
     <link rel="stylesheet" href="<%=application.getContextPath() %>/css/admincss.css" type="text/css"/>
-    <link rel="stylesheet" href="<%=application.getContextPath() %>/css/styles.css" type="text/css"/>
-
 
 </head>
 <body>
-<h2>You logged in</h2>
-<%--<form action='${pageContext.request.contextPath}/admin' method='post'>--%>
-<%--    <input type='text' name='firstparam'/>--%>
-<%--    <input type='submit' name='submit'/>--%>
-<%--</form>--%>
-<div class="upload">
-    <section class="maintext">
+<h2 align="center">Админка</h2>
+<div class="controls">
+    <div class="uploadContent">
         <h3>Загрузить файлы</h3>
-<%--        enctype="multipart/form-data"--%>
-        <form method="post" action='${pageContext.request.contextPath}/admin' >
-<%--            <input type="file" name="file" multiple/>--%>
+        <form method="post" action='${pageContext.request.contextPath}/admin' enctype="multipart/form-data">
+            <input type="file" name="chosenFiles" multiple/>
             <input type="text" name="personName" value="Имя"/>
-            <input type="submit" value="Загрузить" />
+            <input type="submit" value="Загрузить"/>
         </form>
-    </section>
+    </div>
+    <div class="statisticsContent">
+        <h3>Статистика</h3>
+        <table border="1" class="statsTable">
+            <tr>
+                <th>Имя</th>
+                <th>Количество файлов</th>
+                <th>Скачано?</th>
+                <th>Код для загрузки</th>
+            </tr>
+            <tr>
+                <td>Лена</td>
+                <td>35</td>
+                <td>true</td>
+                <td>23</td>
+            </tr>
+            <tr>
+                <td>Вася</td>
+                <td>46</td>
+                <td>true</td>
+                <td>23–23,5</td>
+            </tr>
+            <tr>
+                <td>Катя</td>
+                <td>45</td>
+                <td>true</td>
+                <td>23,5</td>
+            </tr>
+            <tr>
+                <td>Настя</td>
+                <td>52</td>
+                <td>false</td>
+                <td>24</td>
+            </tr>
+        </table>
+    </div>
 </div>
 </body>
 </html>

@@ -1,3 +1,20 @@
-.upload{
+.controls{
+    margin: auto;
+    width: 70%;
     background-color: aqua;
+    display: table;
 }
+.uploadContent{
+    display: table-cell;
+    text-align: center;
+}
+.statisticsContent{
+    display: table-cell;
+    text-align: center;
+    table-layout: auto;
+}
+.statsTable {
+    margin-left: auto;
+    margin-right: auto;
+}
+
