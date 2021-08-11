@@ -1,22 +1,21 @@
 <%--
   Created by IntelliJ IDEA.
   User: Egor
-  Date: 10.08.2021
-  Time: 16:22
+  Date: 11.08.2021
+  Time: 19:23
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <link rel="stylesheet" href="<%=application.getContextPath() %>/css/styles.css" type="text/css"/>
-    <title>Скачать фото</title>
+    <title>Вход в админку</title>
 </head>
 <body>
-<h2>Введите ваш код</h2>
-
-<form action='photobooth' method='post'>
-    <input type='text' name='first'/>
-    <input type='submit' name='submit'/>
+<form action="j_security_check" method="post">
+    Логин:<input type="text" name="j_username"/> <br/>
+    Пароль:<input type="password" name="j_password"/> <br/>
+    <input type="submit" value="login"/>
 </form>
 </body>
 </html>

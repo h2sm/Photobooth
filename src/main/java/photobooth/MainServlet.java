@@ -1,6 +1,5 @@
 package photobooth;
 
-import javax.servlet.ServletException;
 import java.io.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 public class MainServlet extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         var param = req.getParameter("first");
         var clientCode = param==null? "" : param.replaceAll("<","&lt;").replaceAll(">","&gt;");//ваиант перекрытия атаки xss
         System.out.println(clientCode);
@@ -28,7 +27,7 @@ public class MainServlet extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         doGet(req, resp);
     }
 
