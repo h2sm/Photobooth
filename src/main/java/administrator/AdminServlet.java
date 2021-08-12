@@ -17,8 +17,7 @@ public class AdminServlet extends HttpServlet {//For Uploading files
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         try {
-            var User = FileUploader.handleRequest(req);
-
+            var user = FileUploader.handleRequest(req);
             resp.getWriter().write("Files were written");
             doGet(req, resp);
         } catch (Exception e) {
