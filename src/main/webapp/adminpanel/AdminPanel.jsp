@@ -10,7 +10,6 @@
 <head>
     <title>Админка</title>
     <link rel="stylesheet" href="<%=application.getContextPath() %>/css/admincss.css" type="text/css"/>
-
 </head>
 <body>
 <h2 align="center">Админка</h2>
@@ -18,9 +17,9 @@
     <div class="uploadContent">
         <h3>Загрузить файлы</h3>
         <form method="post" action='${pageContext.request.contextPath}/admin' enctype="multipart/form-data">
-            <input type="file" name="chosenFiles" multiple/>
-            <input type="text" name="personName" value="Имя"/>
-            <input type="submit" value="Загрузить"/>
+            <input type="text" id="personName" name="personName" value="Имя">
+            <input type="file" name="chosenFiles" multiple>
+            <input type="submit" value="Загрузить">
         </form>
     </div>
     <div class="statisticsContent">

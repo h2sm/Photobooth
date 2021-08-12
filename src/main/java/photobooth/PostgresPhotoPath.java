@@ -1,5 +1,7 @@
 package photobooth;
 
 public class PostgresPhotoPath {
-//    public static
+    public static void getPath(String userCode){
+
+    }
 }
