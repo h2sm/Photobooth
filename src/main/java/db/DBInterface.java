@@ -2,6 +2,6 @@ package db;
 
 public interface DBInterface {
     boolean auth(String code);
-    void generateUser(String name);//генерация по солям ыыыы
+    void addUser(String code);
     void deleteUser(String code);
 }
