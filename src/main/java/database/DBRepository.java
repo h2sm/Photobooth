@@ -10,7 +10,7 @@ public class DBRepository {
         try (var ps = conn.prepareStatement("select exists(select 1 from photouser where code = ?) AS \"exists\" ")) {
             ps.setInt(1, usercode);
             var res = ps.executeQuery();
-            isAuth = res.getBoolean("exists");
+            while (res.next()) isAuth = res.getBoolean("exists");
             System.out.println(isAuth);
         }
         return isAuth;
@@ -27,11 +27,11 @@ public class DBRepository {
     }
 
     public String load(int code, Connection conn) throws SQLException {
-        String path;
+        String path = "";
         try (var ps = conn.prepareStatement("select pathto from photouser where code = ?")){
             ps.setInt(1, code);
             var result = ps.executeQuery();
-            path = result.getString("pathto");
+            while (result.next()) path = result.getString("pathto");
         }
         return path;
     }

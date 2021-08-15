@@ -23,17 +23,17 @@ public class MainServlet extends HttpServlet {
     }
 
     @Override
-    @SneakyThrows //uwu sneaky hehe
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         var param = req.getParameter("first");
         var clientCode = param == null ? "" : param.replaceAll("<", "&lt;").replaceAll(">", "&gt;");//ваиант перекрытия атаки xss (посоветовали умные дяди ашто?)
         System.out.println(clientCode);
-        var code = Integer.parseInt(clientCode);
         try {
+            var code = Integer.parseInt(clientCode);
             var path = PostgresPhotoPath.getPath(db, code);
             var zip = ZipArchive.makeZIP(path);
             resp.getOutputStream().write(zip);
-        } catch (SQLException e) {
+        } catch (SQLException | NumberFormatException e) {
+            e.printStackTrace();
             resp.sendRedirect("/error.html");
         }
     }
