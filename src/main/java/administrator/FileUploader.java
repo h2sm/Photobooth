@@ -9,12 +9,13 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.util.List;
 
-public class FileUploader {
+public class FileUploader {//это - говнокод, я просто надеюсь что когда-нибудь переделаю его...
     private static final String root = "D:\\PhotoboothFileStorage";
 
     public static User handleRequest(HttpServletRequest req) throws Exception {
         int personNameHash = 0;
         String personName = null;
+        String pathto = null;
         boolean isMultipart = ServletFileUpload.isMultipartContent(req);
         if (isMultipart) {
             FileItemFactory factory = new DiskFileItemFactory();
@@ -31,6 +32,7 @@ public class FileUploader {
                     File path = new File(root + "/" + personNameHash);
                     if (!path.exists()) {
                         boolean status = path.mkdirs();
+                        pathto = path.getAbsolutePath();
                     }
                     File uploadedFile = new File(path + "/" + fileName);
                     System.out.println(uploadedFile.getAbsolutePath());
@@ -38,7 +40,7 @@ public class FileUploader {
                 }
             }
         }
-        return new User(personName,personNameHash);
+        return new User(personName,personNameHash, pathto);
     }
 
 }
