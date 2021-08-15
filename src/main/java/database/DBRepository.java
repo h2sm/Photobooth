@@ -22,7 +22,7 @@ public class DBRepository {
             ps.setString(1,name);
             ps.setInt(2,code);
             ps.setString(3,path);
-            ps.executeQuery();
+            ps.execute();
         }
     }
 
