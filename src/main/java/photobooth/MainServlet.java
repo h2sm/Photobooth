@@ -2,7 +2,6 @@ package photobooth;
 
 import database.DBFactory;
 import database.DBInterface;
-import lombok.SneakyThrows;
 
 import java.io.*;
 import java.sql.SQLException;

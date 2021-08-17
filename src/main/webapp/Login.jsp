@@ -8,14 +8,31 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <link rel="stylesheet" href="<%=application.getContextPath() %>/css/styles.css" type="text/css"/>
     <title>Вход в админку</title>
 </head>
+<style>
+    <%@include file="/css/styles.css" %>
+</style>
 <body>
-<form action="j_security_check" method="post">
-    Логин:<input type="text" name="j_username"/> <br/>
-    Пароль:<input type="password" name="j_password"/> <br/>
-    <input type="submit" value="login"/>
-</form>
+<%--<div class="mainCodeCheck">--%>
+<%--    <form action="j_security_check" method="post">--%>
+<%--        Логин:<input type="text" name="j_username"/> <br/>--%>
+<%--        Пароль:<input type="password" name="j_password"/> <br/>--%>
+<%--        <input type="submit" value="login"/>--%>
+<%--    </form>--%>
+<%--</div>--%>
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+        <h2 class="active"> Админка </h2>
+
+        <form action="j_security_check" method="post">
+            <input type="text" id="login" class="fadeIn second" name="j_username" placeholder="Логин">
+            <input type="text" id="password" class="fadeIn third" name="j_password" placeholder="Пароль">
+            <input type="submit" class="fadeIn fourth" value="Войти" name="submit">
+        </form>
+
+
+    </div>
+</div>
 </body>
 </html>
