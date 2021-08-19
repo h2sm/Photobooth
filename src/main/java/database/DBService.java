@@ -4,6 +4,7 @@ package database;
 import lombok.SneakyThrows;
 
 import javax.sql.DataSource;
+import java.sql.ResultSet;
 
 public class DBService implements DBInterface {
     private final DataSource src;
@@ -37,5 +38,13 @@ public class DBService implements DBInterface {
         var conn = src.getConnection();
         path = repository.load(code, conn);
         return path;
+    }
+
+    @Override
+    @SneakyThrows
+    public ResultSet getAllData() {
+        var conn = src.getConnection();
+        var res = repository.loadAll(conn);
+        return res;
     }
 }

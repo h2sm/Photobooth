@@ -1,6 +1,9 @@
 package database;
 
+import lombok.SneakyThrows;
+
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class DBRepository {
@@ -17,22 +20,29 @@ public class DBRepository {
     }
 
     public void save(String name, int code, String path, Connection conn) throws SQLException {
-        try (var ps = conn.prepareStatement("insert into photouser values ( ?, ?, ?, false)")){
+        try (var ps = conn.prepareStatement("insert into photouser values ( ?, ?, ?, false)")) {
             if (name.toLowerCase().contains("insert")) throw new SQLException("Cant allow this"); //НЕТ
-            ps.setString(1,name);
-            ps.setInt(2,code);
-            ps.setString(3,path);
+            ps.setString(1, name);
+            ps.setInt(2, code);
+            ps.setString(3, path);
             ps.execute();
         }
     }
 
     public String load(int code, Connection conn) throws SQLException {
         String path = "";
-        try (var ps = conn.prepareStatement("select pathto from photouser where code = ?")){
+        try (var ps = conn.prepareStatement("select pathto from photouser where code = ?")) {
             ps.setInt(1, code);
             var result = ps.executeQuery();
             while (result.next()) path = result.getString("pathto");
         }
         return path;
+    }
+
+    @SneakyThrows
+    public ResultSet loadAll(Connection conn) throws SQLException {
+        var ps = conn.prepareStatement("select * from photouser");
+        ResultSet res = ps.executeQuery();
+        return res;
     }
 }

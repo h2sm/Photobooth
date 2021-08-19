@@ -1,4 +1,6 @@
-<%--
+<%@ page import="database.DBFactory" %>
+<%@ page import="java.sql.ResultSet" %>
+<%@ page import="database.DBInterface" %><%--
   Created by IntelliJ IDEA.
   User: Egor
   Date: 11.08.2021
@@ -25,36 +27,30 @@
     <div class="statisticsContent">
         <h3>Статистика</h3>
         <table border="1" class="statsTable">
-            <tr>
+            <TR>
                 <th>Имя</th>
-                <th>Количество файлов</th>
+                <th>Код скачивания</th>
+                <th>Путь до файлов</th>
                 <th>Скачано?</th>
-                <th>Код для загрузки</th>
-            </tr>
+            </TR>
+        <%
+            try {
+                DBInterface instance = DBFactory.getInstance();
+                ResultSet res = instance.getAllData();
+                while (res.next()) {
+        %>
             <tr>
-                <td>Лена</td>
-                <td>35</td>
-                <td>true</td>
-                <td>23</td>
+                <th><%=res.getString("username")%></th>
+                <th><%=res.getInt("code")%></th>
+                <th><%=res.getString("pathto")%></th>
+                <th><%=res.getBoolean("hasdownloaded")%></th>
             </tr>
-            <tr>
-                <td>Вася</td>
-                <td>46</td>
-                <td>true</td>
-                <td>23–23,5</td>
-            </tr>
-            <tr>
-                <td>Катя</td>
-                <td>45</td>
-                <td>true</td>
-                <td>23,5</td>
-            </tr>
-            <tr>
-                <td>Настя</td>
-                <td>52</td>
-                <td>false</td>
-                <td>24</td>
-            </tr>
+            <%
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            %>
         </table>
     </div>
 </div>
