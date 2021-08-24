@@ -30,6 +30,7 @@ public class MainServlet extends HttpServlet {
             var code = Integer.parseInt(clientCode);
             var path = PostgresPhotoPath.getPath(db, code);
             var zip = ZipArchive.makeZIP(path);
+
             resp.getOutputStream().write(zip);
         } catch (SQLException | NumberFormatException e) {
             e.printStackTrace();

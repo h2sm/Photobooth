@@ -5,9 +5,11 @@ import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileItemFactory;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
+import org.apache.commons.io.FileUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Comparator;
@@ -47,15 +49,26 @@ public class FileManager {//это - говнокод, я просто наде�
         }
         return new User(personName,personNameHash, pathto);
     }
-    @SneakyThrows
+
     public static void delete(int code){
-        var path = Path.of(root+"\\"+code);
-        System.out.println(path.toString());
-        Files.walk(Path.of(root+"\\"+code))
-                .sorted(Comparator.reverseOrder())
-                .map(Path::toFile)
-                .forEach(File::delete);
-        System.out.println("deleted");
+        var str = root + "\\" + code + "\\";
+        try {
+            FileUtils.deleteDirectory(new File(str));
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
+//        System.out.println("DELETE OF" + str);
+//        try {
+//            Files.walk(Path.of(str))
+//                    .sorted(Comparator.reverseOrder())
+//                    .map(Path::toFile)
+//                    .forEach(File::delete);
+//        }
+//        catch (Exception e){
+//            e.printStackTrace();
+//        }
+//        System.out.println(str + "deleted");
     }
 
 }

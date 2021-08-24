@@ -24,6 +24,7 @@ public class ZipArchive {
             zipOut.write(IOUtils.toByteArray(new FileInputStream(xlsFile)));
             zipOut.closeEntry();
         }
+        bo.close();
         zipOut.close();
         return bo.toByteArray();
     }
