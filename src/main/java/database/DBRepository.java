@@ -45,4 +45,10 @@ public class DBRepository {
         ResultSet res = ps.executeQuery();
         return res;
     }
+
+    public void deletePhotos(Connection conn, int code) throws SQLException {
+        var ps = conn.prepareStatement("delete from photouser where code = ?");
+        ps.setInt(1, code);
+        ps.execute();
+    }
 }

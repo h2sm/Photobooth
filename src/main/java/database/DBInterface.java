@@ -7,4 +7,5 @@ public interface DBInterface {
     void save(String name, int code, String path);
     String loadPath(int code);
     ResultSet getAllData();
+    void deletePhotos(int code);
 }

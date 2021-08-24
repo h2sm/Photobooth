@@ -14,13 +14,6 @@
     <%@include file="/css/styles.css" %>
 </style>
 <body>
-<%--<div class="mainCodeCheck">--%>
-<%--    <form action="j_security_check" method="post">--%>
-<%--        Логин:<input type="text" name="j_username"/> <br/>--%>
-<%--        Пароль:<input type="password" name="j_password"/> <br/>--%>
-<%--        <input type="submit" value="login"/>--%>
-<%--    </form>--%>
-<%--</div>--%>
 <div class="wrapper fadeInDown">
     <div id="formContent">
         <h2 class="active"> Админка </h2>

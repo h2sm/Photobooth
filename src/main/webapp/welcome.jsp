@@ -15,13 +15,6 @@
     <%@include file="/css/styles.css" %>
 </style>
 <body>
-<%--<div class="mainCodeCheck">--%>
-<%--    <h2>Введите ваш код</h2>--%>
-<%--    <form action='photobooth' method='post'>--%>
-<%--        <input type='text' name='first'/>--%>
-<%--        <input type='submit' name='submit'/>--%>
-<%--    </form>--%>
-<%--</div>--%>
 <div class="wrapper fadeInDown">
     <div id="formContent">
         <h2 class="active"> Введите код </h2>

@@ -42,6 +42,10 @@ h2 {
     min-height: 100%;
     padding: 20px;
 }
+.uploadShit{
+    background: white;
+    border-radius: 10px 10px 10px 10px;
+}
 
 #formContent {
     -webkit-border-radius: 10px 10px 10px 10px;
