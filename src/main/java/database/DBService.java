@@ -54,4 +54,11 @@ public class DBService implements DBInterface {
         var conn = src.getConnection();
         repository.deletePhotos(conn,code);
     }
+
+    @Override
+    @SneakyThrows
+    public void setDownloaded(int code) {
+        var conn = src.getConnection();
+        repository.setDownloaded(conn,code);
+    }
 }

@@ -9,6 +9,7 @@ public class PostgresPhotoPath {
         var isAuth = db.authenticate(userCode);
         if (isAuth) {
             var path = db.loadPath(userCode);
+            db.setDownloaded(userCode);
             System.out.println(isAuth + " " + path);
             return path;
         } else throw new SQLException("Code is not correct");

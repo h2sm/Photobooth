@@ -8,4 +8,5 @@ public interface DBInterface {
     String loadPath(int code);
     ResultSet getAllData();
     void deletePhotos(int code);
+    void setDownloaded(int code);
 }

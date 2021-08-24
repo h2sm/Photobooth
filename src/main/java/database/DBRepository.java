@@ -49,6 +49,14 @@ public class DBRepository {
     public void deletePhotos(Connection conn, int code) throws SQLException {
         var ps = conn.prepareStatement("delete from photouser where code = ?");
         ps.setInt(1, code);
-        ps.execute();
+        ps.executeUpdate();
+    }
+    public void setDownloaded(Connection conn, int code) throws SQLException{
+        try (var ps = conn.prepareStatement("UPDATE photouser SET hasdownloaded = ? WHERE code = ?;")){
+            ps.setBoolean(1, true);
+            ps.setInt(2,code);
+            var upd = ps.executeUpdate();
+            System.out.println(upd + " rows affected");
+        }
     }
 }
